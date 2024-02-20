@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/presentation/home_page.dart';
+import 'package:news_app/src/utils/resources/asset_resources.dart';
+import 'package:news_app/src/utils/resources/color_resources.dart';
 
 class News_Details extends StatefulWidget {
   const News_Details({super.key});
@@ -18,8 +20,8 @@ class _News_DetailsState extends State<News_Details> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: BottomNavigationBar(
-              selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.grey,
+              selectedItemColor: ColorResources.black,
+              unselectedItemColor: ColorResources.grey,
               currentIndex: indexNum,
               onTap: (int index) {
                 setState(() {
@@ -28,22 +30,22 @@ class _News_DetailsState extends State<News_Details> {
               },
               items: const [
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/chat_icon.png")),
+                    icon: ImageIcon(AssetImage(AssetResources.chaticon)),
                     label: "",
-                    backgroundColor: Color.fromARGB(255, 216, 212, 212)),
+                    backgroundColor: ColorResources.argb),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
-                        AssetImage("assets/images/bookmark_icon.png")),
+                        AssetImage(AssetResources.bookmarkicon)),
                     label: "",
-                    backgroundColor: Color.fromARGB(255, 216, 212, 212)),
+                    backgroundColor: ColorResources.argb),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/arrow_icon.png")),
+                    icon: ImageIcon(AssetImage(AssetResources.arrowicon)),
                     label: "",
-                    backgroundColor: Color.fromARGB(255, 216, 212, 212)),
+                    backgroundColor: ColorResources.argb),
               ]),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor:ColorResources.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -60,13 +62,13 @@ class _News_DetailsState extends State<News_Details> {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadiusDirectional.circular(50),
-                              color: Colors.black,
+                              color: ColorResources.black,
                             ),
                             height: 50,
                             width: 50,
                             child: Icon(
                               Icons.arrow_back,
-                              color: Colors.white,
+                              color: ColorResources.white,
                             ),
                           ))
                     ],
@@ -76,7 +78,7 @@ class _News_DetailsState extends State<News_Details> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
-                            "assets/images/main_image.png",
+                            AssetResources.mainimage,
                           ),
                           fit: BoxFit.cover))),
             ),
@@ -99,9 +101,9 @@ class _News_DetailsState extends State<News_Details> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadiusDirectional.circular(50),
-                                color: Colors.white),
+                                color: ColorResources.white),
                             child:
-                                Image.asset("assets/images/avatar_image.png"),
+                                Image.asset(AssetResources.avatarimage),
                           ),
                           SizedBox(
                             width: 15,
@@ -109,7 +111,7 @@ class _News_DetailsState extends State<News_Details> {
                           Text(
                             "Samuel Newton",
                             style: TextStyle(
-                                color: Colors.black,
+                                color: ColorResources.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
                           )
@@ -139,7 +141,7 @@ class _News_DetailsState extends State<News_Details> {
                         Text(
                           "TECHNOLOGY",
                           style: TextStyle(
-                              color: Colors.grey,
+                              color: ColorResources.grey,
                               fontSize: 12,
                               fontWeight: FontWeight.w800),
                         ),
@@ -149,21 +151,21 @@ class _News_DetailsState extends State<News_Details> {
                         Text(
                           "To build responsibly,tech",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ColorResources.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w900),
                         ),
                         Text(
                           "needs to do more than just",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ColorResources.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w900),
                         ),
                         Text(
                           "hire chief ethics officers",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ColorResources.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w900),
                         ),
@@ -172,7 +174,7 @@ class _News_DetailsState extends State<News_Details> {
                     Text(
                       "17 June,2023-4:49PM",
                       style: TextStyle(
-                          color: Colors.black,
+                          color:ColorResources.black,
                           fontSize: 13,
                           fontWeight: FontWeight.w300),
                     )
@@ -186,7 +188,7 @@ class _News_DetailsState extends State<News_Details> {
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: Divider(
-                color: const Color.fromARGB(255, 232, 231, 231),
+                color: ColorResources.argb,
                 thickness: 2.5,
               ),
             ),
@@ -204,49 +206,49 @@ class _News_DetailsState extends State<News_Details> {
                     Text(
                       "In the last couple of years,we've seen",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "new teams in tech companies emerge",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "that focus on responsible innovation,",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "digital well-being,AI ethics or humane",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "use.Whatever their titles,these individual",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "are given in the task of \"leading\" ethics at",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                     Text(
                       "their companies",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/presentation/news_details.dart';
+import 'package:news_app/src/utils/resources/asset_resources.dart';
+import 'package:news_app/src/utils/resources/color_resources.dart';
 
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
@@ -15,15 +17,15 @@ class _Home_pageState extends State<Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.white,
+      backgroundColor:ColorResources.white,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, bottom: 70),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: BottomNavigationBar(
             
-              selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.grey,
+              selectedItemColor:ColorResources.black,
+              unselectedItemColor:ColorResources.grey,
               currentIndex: indexNum,
               onTap: (int index) {
                 setState(() {
@@ -32,24 +34,24 @@ class _Home_pageState extends State<Home_page> {
               },
               items: const [
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage("assets/images/home_icon.png")),
-                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
+                    icon: ImageIcon(AssetImage(AssetResources.homeicon)),
+                    label: "",backgroundColor:ColorResources.argb),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
-                        AssetImage("assets/images/bookmark_icon.png")),
-                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
+                        AssetImage(AssetResources.bookmarkicon)),
+                    label: "",backgroundColor:ColorResources.argb),
                 BottomNavigationBarItem(
                     icon:
-                        ImageIcon(AssetImage("assets/images/search_icon.png")),
-                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
+                        ImageIcon(AssetImage(AssetResources.searchicon)),
+                    label: "",backgroundColor:ColorResources.argb),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
-                        AssetImage("assets/images/notification_icon.png")),
-                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
+                        AssetImage(AssetResources.notificationicon)),
+                    label: "",backgroundColor:ColorResources.argb),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
-                        AssetImage("assets/images/settings_icon.png")),
-                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
+                        AssetImage(AssetResources.settingsicon)),
+                    label: "",backgroundColor:ColorResources.argb),
               ]),
         ),
       ),
@@ -63,27 +65,27 @@ class _Home_pageState extends State<Home_page> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset("assets/images/menu_icon.png"),
+                    Image.asset(AssetResources.menuicon),
                     Container(
                         child: Row(
                       children: [
                         Text(
                           "News",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: ColorResources.black,
                               fontWeight: FontWeight.w900,
                               fontSize: 16),
                         ),
                         Text(
                           "App",
                           style: TextStyle(
-                              color: Colors.black,
+                              color:ColorResources.black,
                               fontWeight: FontWeight.w300,
                               fontSize: 16),
                         ),
                       ],
                     )),
-                    Image.asset("assets/images/podcast_icon.png"),
+                    Image.asset(AssetResources.podcasticon),
                   ],
                 ),
               ),
@@ -104,7 +106,7 @@ class _Home_pageState extends State<Home_page> {
                         ),
                         child: Stack(
                           children: [
-                            Image.asset("assets/images/robot_image.png"),
+                            Image.asset(AssetResources.robotimage),
                             Positioned(
                                 child: Padding(
                               padding: const EdgeInsets.only(
@@ -118,14 +120,14 @@ class _Home_pageState extends State<Home_page> {
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                   Text(
                                     "3 min ago",
                                     style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                 ],
                               ),
@@ -144,21 +146,21 @@ class _Home_pageState extends State<Home_page> {
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                       Text(
                                         "deepfake detector tool",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                       Text(
                                         "ahead of US election",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                     ],
                                   ),
@@ -176,16 +178,16 @@ class _Home_pageState extends State<Home_page> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            "assets/images/chat_icon.png"),
+                                            AssetResources.chaticon),
                                         SizedBox(
                                           width: 15,
                                         ),
                                         Image.asset(
-                                            "assets/images/bookmark_icon.png"),
+                                            AssetResources.bookmarkicon),
                                       ],
                                     )),
                                   ),
-                                  Image.asset("assets/images/arrow_icon.png"),
+                                  Image.asset(AssetResources.arrowicon),
                                 ],
                               ),
                             )
@@ -203,7 +205,7 @@ class _Home_pageState extends State<Home_page> {
                         ),
                         child: Stack(
                           children: [
-                            Image.asset("assets/images/microsoft_image.png"),
+                            Image.asset(AssetResources.microsoftimage),
                             Positioned(
                                 child: Padding(
                               padding: const EdgeInsets.only(
@@ -217,14 +219,14 @@ class _Home_pageState extends State<Home_page> {
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                   Text(
                                     "3 min ago",
                                     style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                 ],
                               ),
@@ -243,21 +245,21 @@ class _Home_pageState extends State<Home_page> {
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                       Text(
                                         "deepfake detector tool",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color:ColorResources.white ),
                                       ),
                                       Text(
                                         "ahead of US election",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color:ColorResources.white),
                                       ),
                                     ],
                                   ),
@@ -275,16 +277,16 @@ class _Home_pageState extends State<Home_page> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            "assets/images/chat_icon.png"),
+                                           AssetResources.chaticon),
                                         SizedBox(
                                           width: 15,
                                         ),
                                         Image.asset(
-                                            "assets/images/bookmark_icon.png"),
+                                            AssetResources.bookmarkicon),
                                       ],
                                     )),
                                   ),
-                                  Image.asset("assets/images/arrow_icon.png"),
+                                  Image.asset(AssetResources.arrowicon),
                                 ],
                               ),
                             )
@@ -299,7 +301,7 @@ class _Home_pageState extends State<Home_page> {
                         ),
                         child: Stack(
                           children: [
-                            Image.asset("assets/images/robot_image.png"),
+                            Image.asset(AssetResources.robotimage),
                             Positioned(
                                 child: Padding(
                               padding: const EdgeInsets.only(
@@ -313,14 +315,14 @@ class _Home_pageState extends State<Home_page> {
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                   Text(
                                     "3 min ago",
                                     style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                 ],
                               ),
@@ -339,21 +341,21 @@ class _Home_pageState extends State<Home_page> {
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                       Text(
                                         "deepfake detector tool",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color:ColorResources.white),
                                       ),
                                       Text(
                                         "ahead of US election",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color:ColorResources.white),
                                       ),
                                     ],
                                   ),
@@ -371,16 +373,16 @@ class _Home_pageState extends State<Home_page> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            "assets/images/chat_icon.png"),
+                                            AssetResources.chaticon),
                                         SizedBox(
                                           width: 15,
                                         ),
                                         Image.asset(
-                                            "assets/images/bookmark_icon.png"),
+                                            AssetResources.bookmarkicon),
                                       ],
                                     )),
                                   ),
-                                  Image.asset("assets/images/arrow_icon.png"),
+                                  Image.asset(AssetResources.arrowicon),
                                 ],
                               ),
                             )
@@ -398,7 +400,7 @@ class _Home_pageState extends State<Home_page> {
                         ),
                         child: Stack(
                           children: [
-                            Image.asset("assets/images/microsoft_image.png"),
+                            Image.asset(AssetResources.microsoftimage),
                             Positioned(
                                 child: Padding(
                               padding: const EdgeInsets.only(
@@ -412,14 +414,14 @@ class _Home_pageState extends State<Home_page> {
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color: ColorResources.white),
                                   ),
                                   Text(
                                     "3 min ago",
                                     style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                        color:ColorResources.white),
                                   ),
                                 ],
                               ),
@@ -438,21 +440,21 @@ class _Home_pageState extends State<Home_page> {
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color:ColorResources.white),
                                       ),
                                       Text(
                                         "deepfake detector tool",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                       Text(
                                         "ahead of US election",
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white),
+                                            color: ColorResources.white),
                                       ),
                                     ],
                                   ),
@@ -470,16 +472,16 @@ class _Home_pageState extends State<Home_page> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            "assets/images/chat_icon.png"),
+                                            AssetResources.chaticon),
                                         SizedBox(
                                           width: 15,
                                         ),
                                         Image.asset(
-                                            "assets/images/bookmark_icon.png"),
+                                            AssetResources.bookmarkicon),
                                       ],
                                     )),
                                   ),
-                                  Image.asset("assets/images/arrow_icon.png"),
+                                  Image.asset(AssetResources.arrowicon),
                                 ],
                               ),
                             )
@@ -505,11 +507,11 @@ class _Home_pageState extends State<Home_page> {
                     Text(
                       "Latest News",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: ColorResources.black,
                           fontWeight: FontWeight.w200,
                           fontSize: 12),
                     ),
-                    Image.asset("assets/images/navigate_icon.png")
+                    Image.asset(AssetResources.navigateicon)
                   ],
                 ),
               ),
@@ -529,7 +531,7 @@ class _Home_pageState extends State<Home_page> {
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset("assets/images/start_up.png"),
+                      Image.asset(AssetResources.startup),
                       Padding(
                         padding: const EdgeInsets.only(left: 25),
                         child: Container(
@@ -541,7 +543,7 @@ class _Home_pageState extends State<Home_page> {
                                 "TECHNOLOGY",
                                 style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey,
+                                    color:ColorResources.grey,
                                     fontWeight: FontWeight.w800),
                               ),
                               SizedBox(
@@ -551,21 +553,21 @@ class _Home_pageState extends State<Home_page> {
                                 "Insuretech startup",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: ColorResources.black,
                                     fontWeight: FontWeight.w900),
                               ),
                               Text(
                                 "PasarPolis gets \$54 ",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: ColorResources.black,
                                     fontWeight: FontWeight.w900),
                               ),
                               Text(
                                 "million - Series B ",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: ColorResources.black,
                                     fontWeight: FontWeight.w900),
                               ),
                             ],
@@ -588,7 +590,7 @@ class _Home_pageState extends State<Home_page> {
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset("assets/images/ipo_image.png"),
+                    Image.asset(AssetResources.ipoimage),
                     Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Container(
@@ -600,7 +602,7 @@ class _Home_pageState extends State<Home_page> {
                               "TECHNOLOGY",
                               style: TextStyle(
                                   fontSize: 12,
-                                  color: Colors.grey,
+                                  color: ColorResources.grey,
                                   fontWeight: FontWeight.w800),
                             ),
                             SizedBox(
@@ -610,21 +612,21 @@ class _Home_pageState extends State<Home_page> {
                               "The IPO parade",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                             Text(
                               "continues as Wish ",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                             Text(
                               "files,Bumble targets ",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                           ],
@@ -646,7 +648,7 @@ class _Home_pageState extends State<Home_page> {
                 child: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset("assets/images/hypatos_image.png"),
+                    Image.asset(AssetResources.hypatosimage),
                     Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Container(
@@ -657,7 +659,7 @@ class _Home_pageState extends State<Home_page> {
                               "TECHNOLOGY",
                               style: TextStyle(
                                   fontSize: 12,
-                                  color: Colors.grey,
+                                  color: ColorResources.grey,
                                   fontWeight: FontWeight.w800),
                             ),
                             SizedBox(
@@ -667,21 +669,21 @@ class _Home_pageState extends State<Home_page> {
                               "Hypatos gets \$11.8M",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                             Text(
                               "for a deep learning ",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                             Text(
                               "approach ",
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: ColorResources.black,
                                   fontWeight: FontWeight.w900),
                             ),
                           ],
