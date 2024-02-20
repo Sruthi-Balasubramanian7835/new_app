@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news_app/presentation/home_page.dart';
-import 'package:news_app/presentation/splash_screen.dart';
+import 'package:news_app/presentation/news_details.dart';
+
 
 void main() {
    SystemChrome.setPreferredOrientations([

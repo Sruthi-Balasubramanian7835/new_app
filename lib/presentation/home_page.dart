@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/presentation/clip_path.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/presentation/news_details.dart';
 
 class Home_page extends StatefulWidget {
   const Home_page({super.key});
@@ -14,20 +15,16 @@ class _Home_pageState extends State<Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 231, 230, 230),
+      backgroundColor:Colors.white,
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+        padding: const EdgeInsets.only(left: 30, right: 30, bottom: 70),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              topRight: Radius.circular(50),
-              bottomLeft: Radius.circular(50),
-              bottomRight: Radius.circular(50)),
+          borderRadius: BorderRadius.circular(50),
           child: BottomNavigationBar(
+            
               selectedItemColor: Colors.black,
               unselectedItemColor: Colors.grey,
               currentIndex: indexNum,
-              type: BottomNavigationBarType.fixed,
               onTap: (int index) {
                 setState(() {
                   indexNum = index;
@@ -36,23 +33,23 @@ class _Home_pageState extends State<Home_page> {
               items: const [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/home_icon.png")),
-                    label: ""),
+                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                         AssetImage("assets/images/bookmark_icon.png")),
-                    label: ""),
+                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
                 BottomNavigationBarItem(
                     icon:
                         ImageIcon(AssetImage("assets/images/search_icon.png")),
-                    label: ""),
+                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                         AssetImage("assets/images/notification_icon.png")),
-                    label: ""),
+                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                         AssetImage("assets/images/settings_icon.png")),
-                    label: ""),
+                    label: "",backgroundColor:Color.fromARGB(255, 216, 212, 212)),
               ]),
         ),
       ),
@@ -520,58 +517,63 @@ class _Home_pageState extends State<Home_page> {
             SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 20),
-              child: Container(
-                height: 100,
-                // color: Colors.black,
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset("assets/images/start_up.png"),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25),
-                      child: Container(
-                        // color: Colors.amber,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TECHNOLOGY",
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "Insuretech startup",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                            Text(
-                              "PasarPolis gets \$54 ",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                            Text(
-                              "million - Series B ",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                          ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>News_Details()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30, right: 20),
+                child: Container(
+                  height: 100,
+                  // color: Colors.black,
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset("assets/images/start_up.png"),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: Container(
+                          // color: Colors.amber,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "TECHNOLOGY",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Insuretech startup",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                              Text(
+                                "PasarPolis gets \$54 ",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                              Text(
+                                "million - Series B ",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
