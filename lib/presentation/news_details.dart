@@ -12,6 +12,7 @@ class News_Details extends StatefulWidget {
 
 class _News_DetailsState extends State<News_Details> {
   int indexNum = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +35,7 @@ class _News_DetailsState extends State<News_Details> {
                     label: "",
                     backgroundColor: ColorResources.argb),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(
-                        AssetImage(AssetResources.bookmarkicon)),
+                    icon: ImageIcon(AssetImage(AssetResources.bookmarkicon)),
                     label: "",
                     backgroundColor: ColorResources.argb),
                 BottomNavigationBarItem(
@@ -45,13 +45,14 @@ class _News_DetailsState extends State<News_Details> {
               ]),
         ),
       ),
-      backgroundColor:ColorResources.white,
+      backgroundColor: ColorResources.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>Home_page()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Home_page()));
               },
               child: Container(
                   child: Stack(
@@ -61,7 +62,8 @@ class _News_DetailsState extends State<News_Details> {
                           left: 30,
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadiusDirectional.circular(50),
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(50),
                               color: ColorResources.black,
                             ),
                             height: 50,
@@ -102,8 +104,7 @@ class _News_DetailsState extends State<News_Details> {
                                 borderRadius:
                                     BorderRadiusDirectional.circular(50),
                                 color: ColorResources.white),
-                            child:
-                                Image.asset(AssetResources.avatarimage),
+                            child: Image.asset(AssetResources.avatarimage),
                           ),
                           SizedBox(
                             width: 15,
@@ -128,55 +129,47 @@ class _News_DetailsState extends State<News_Details> {
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: Container(
+               
                 height: 150,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                        child: Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "TECHNOLOGY",
-                          style: TextStyle(
-                              color: ColorResources.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
+                        Container(
+                       
+                          child: Text(
+                            "TECHNOLOGY",
+                            style: TextStyle(
+                                color: ColorResources.grey,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w800),
+                          ),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
-                          "To build responsibly,tech",
-                          style: TextStyle(
-                              color: ColorResources.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w900),
-                        ),
-                        Text(
-                          "needs to do more than just",
-                          style: TextStyle(
-                              color: ColorResources.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w900),
-                        ),
-                        Text(
-                          "hire chief ethics officers",
+                          "To build responsibly,tech\nneeds to do more than just hire chief ethics officers",
                           style: TextStyle(
                               color: ColorResources.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w900),
                         ),
                       ],
-                    )),
-                    Text(
-                      "17 June,2023-4:49PM",
-                      style: TextStyle(
-                          color:ColorResources.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w300),
+                    ),
+                    Container(
+                  
+                      child: Text(
+                        "17 June,2023-4:49PM",
+                        style: TextStyle(
+                            color: ColorResources.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w300),
+                      ),
                     )
                   ],
                 ),
@@ -198,63 +191,15 @@ class _News_DetailsState extends State<News_Details> {
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
               child: Container(
-                height: 150,
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "In the last couple of years,we've seen",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "new teams in tech companies emerge",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "that focus on responsible innovation,",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "digital well-being,AI ethics or humane",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "use.Whatever their titles,these individual",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "are given in the task of \"leading\" ethics at",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      "their companies",
-                      style: TextStyle(
-                          color: ColorResources.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                ),
-              ),
+                  height: 150,
+                  width: double.infinity,
+                  child: Text(
+                    "In the last couple of years, we’ve seen\nnew teams in tech companies emerge\nthat focus on responsible innovation\ndigital well-being, AI ethics or humane\nuse. Whatever their titles, these individual\n are given the task of “leading” ethics at\n their companies.",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600),
+                  )),
             )
           ],
         ),
