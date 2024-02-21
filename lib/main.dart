@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news_app/presentation/home_page.dart';
-import 'package:news_app/presentation/news_details.dart';
 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
    SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
     ));
-    return MaterialApp(
+    return const MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      home:Home_page(),
+      home:HomePage(),
     );
   }
 }
