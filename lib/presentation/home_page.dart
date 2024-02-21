@@ -13,15 +13,13 @@ class Home_page extends StatefulWidget {
 }
 
 class _Home_pageState extends State<Home_page> {
-  Widget container_items(
-      {required String img,
-      required String text1,
-      required String text2,
-      required String text3}) {
+  Widget container_items({
+    required String img,
+    required String text1,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(left: 30, right: 20),
       child: Container(
-
         height: 100,
         child: Row(
           children: [
@@ -44,20 +42,6 @@ class _Home_pageState extends State<Home_page> {
                     ),
                     Text(
                       text1,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: ColorResources.black,
-                          fontWeight: FontWeight.w900),
-                    ),
-                    Text(
-                      text2,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: ColorResources.black,
-                          fontWeight: FontWeight.w900),
-                    ),
-                    Text(
-                      text3,
                       style: TextStyle(
                           fontSize: 16,
                           color: ColorResources.black,
@@ -109,31 +93,14 @@ class _Home_pageState extends State<Home_page> {
               top: 140,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Microsoft launches a",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: ColorResources.white),
-                    ),
-                    Text(
-                      "deepfake detector tool",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: ColorResources.white),
-                    ),
-                    Text(
-                      "ahead of US election",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: ColorResources.white),
-                    ),
-                  ],
+                child: Container(
+                  child: Text(
+                    "Microsoft launches a\ndeepfake detector tool\nahead of US election",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: ColorResources.white),
+                  ),
                 ),
               )),
           Positioned(
@@ -312,27 +279,25 @@ class _Home_pageState extends State<Home_page> {
                     MaterialPageRoute(builder: (context) => News_Details()));
               },
               child: container_items(
-                  img: AssetResources.startup,
-                  text1: "Insuretech startup",
-                  text2: "Pasarpolis gets \$54",
-                  text3: "million - Series B"),
+                img: AssetResources.startup,
+                text1:
+                    "Insuretech startup\nPasarpolis gets \$54\nmillion - Series B",
+              ),
             ),
             SizedBox(
               height: 20,
             ),
             container_items(
-                img: AssetResources.ipoimage,
-                text1: "The IPO parade",
-                text2: "continues as Wish",
-                text3: "files,Bumble targets"),
+              img: AssetResources.ipoimage,
+              text1: "The IPO parade\ncontinues as Wish\nfiles,Bumble targets",
+            ),
             SizedBox(
               height: 20,
             ),
             container_items(
-                img: AssetResources.hypatosimage,
-                text1: "Hypatos gets \$11.8M",
-                text2: "for a deep learning",
-                text3: "approach"),
+              img: AssetResources.hypatosimage,
+              text1: "Hypatos gets \$11.8M\nfor a deep learning\napproach",
+            ),
           ],
         ),
       ),
