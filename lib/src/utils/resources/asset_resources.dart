@@ -17,4 +17,6 @@ class AssetResources
     static const searchicon = "assets/images/search_icon.png";
     static const settingsicon = "assets/images/settings_icon.png";
     static const startup = "assets/images/start_up.png";
+    static const splash = "assets/images/splash_pic.jpg";
+    static const backicon = "assets/images/back_icon.png";
 }
