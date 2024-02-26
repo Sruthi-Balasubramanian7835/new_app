@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app/presentation/home_page.dart';
+
 import 'package:news_app/screens/splash_screen.dart';
 
 

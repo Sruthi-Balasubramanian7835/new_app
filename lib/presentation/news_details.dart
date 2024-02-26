@@ -1,94 +1,106 @@
-// import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:news_app/presentation/home_page.dart';
-// import 'package:news_app/src/utils/resources/asset_resources.dart';
-// import 'package:news_app/src/utils/resources/color_resources.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:news_app/src/utils/resources/color_resources.dart';
 
-// class NewsDetails extends StatefulWidget {
-//   const NewsDetails({super.key});
+class NewsDetails extends StatefulWidget {
+  final String newsimage, newsauthor, newsdescription, newstime, newscontent;
+  const NewsDetails(
+      {super.key,
+      required this.newsauthor,
+      required this.newscontent,
+      required this.newsdescription,
+      required this.newsimage,
+      required this.newstime});
 
-//   @override
-//   State<NewsDetails> createState() => _NewsDetailsState();
-// }
+  @override
+  State<NewsDetails> createState() => _NewsDetailsState();
+}
 
-// class _NewsDetailsState extends State<NewsDetails> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         body: SingleChildScrollView(
-//       child: Column(
-//         children: [
-//           Container(
-//             height: height * 0.5,
-//             width: width * 1,
-//             child: ClipRRect(
-//               borderRadius: BorderRadius.only(
-//                   bottomLeft: Radius.circular(30),
-//                   bottomRight: Radius.circular(30)),
-//               child: CachedNetworkImage(
-//                 imageUrl: snapshot.data!.articles![index].urlToImage.toString(),
-//                 fit: BoxFit.cover,
-//                 placeholder: (context, url) => SpinKitCircle(
-//                   size: 50,
-//                   color: ColorResources.amber,
-//                 ),
-//                 errorWidget: (context, url, error) => Icon(
-//                   Icons.error_outline,
-//                   color: ColorResources.red,
-//                 ),
-//               ),
-//             ),
-//           ),
-//           SizedBox(
-//             height: height * 0.02,
-//           ),
-//           SizedBox(
-//             child: Column(
-//               children: [
-//                 Text(
-//                   "Author:",
-//                   style: GoogleFonts.poppins(
-//                       color: ColorResources.black,
-//                       fontSize: 12,
-//                       fontWeight: FontWeight.w900),
-//                 ),
-//                 Text(snapshot.data!.articles![index].author.toString(),
-//                     maxLines: 2,
-//                     style: GoogleFonts.poppins(
-//                         color: ColorResources.black,
-//                         fontSize: 12,
-//                         fontWeight: FontWeight.w900)),
-//               ],
-//             ),
-//           ),
-//           SizedBox(
-//             height: height * 0.02,
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.only(left: 30, right: 30),
-//             child: Container(
-//               height: height * 0.25,
-//               width: width * 1,
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Text(
-//                     snapshot.data!.articles![index].content.toString(),
-//                     style: GoogleFonts.aBeeZee(
-//                         fontSize: 15,
-//                         fontWeight: FontWeight.w600,
-//                         color: ColorResources.black),
-//                   ),
-//                   Text(format.format(dateTime))
-//                 ],
-//               ),
-//             ),
-//           )
-//         ],
-//       ),
-//     ));
-//   }
-// }
+class _NewsDetailsState extends State<NewsDetails> {
+  final format = DateFormat('MMMM dd,yyyy');
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+    DateTime dateTime = DateTime.parse(widget.newstime);
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+              child: Container(
+                height: height * 0.5,
+                width: width,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: CachedNetworkImageProvider(widget.newsimage),fit: BoxFit.cover)
+                ),
+                
+                   
+              ),
+            ),
+            SizedBox(
+              height: height * 0.03,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Column(
+                children: [
+                  Text(
+                    "Author:",
+                    style: GoogleFonts.poppins(
+                        fontSize: 12, fontWeight: FontWeight.w900),
+                  ),
+                  Text(
+                    widget.newsauthor,
+                    style: GoogleFonts.poppins(
+                        fontSize: 12, fontWeight: FontWeight.w900),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: height * 0.03,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Container(
+                height: height * 0.25,
+                width: width,
+               
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.newsdescription,
+                      style: GoogleFonts.aBeeZee(
+                          fontSize: 15, fontWeight: FontWeight.w900),
+                          maxLines: 5,
+                    ),
+                    SizedBox(
+                      height: height * 0.05,
+                    ),
+                    Text(
+                      format.format(dateTime),
+                      style: GoogleFonts.aBeeZee(
+                          fontSize: 15, fontWeight: FontWeight.w900),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: SizedBox(
+                width: width,
+                child: Text(widget.newscontent),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
