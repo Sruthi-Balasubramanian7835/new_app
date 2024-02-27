@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/model/newschannel_headlinesmodel.dart';
-import 'package:news_app/presentation/news_details.dart';
+import 'package:news_app/screens/news_details.dart';
 
 import 'package:news_app/presentation/widgets/card_items.dart';
 import 'package:news_app/src/utils/resources/asset_resources.dart';
@@ -26,82 +26,80 @@ class _HomePageState extends State<HomePage> {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "NewsApp",
-          style: TextStyle(fontWeight: FontWeight.w600),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            "NewsApp",
+            style: TextStyle(fontWeight: FontWeight.w600),
+          ),
+          
+          actions: [
+            IconButton(
+                onPressed: () {}, icon: Image.asset(AssetResources.menuicon))
+          ],
         ),
-        leading: Image.asset(AssetResources.menuicon),
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: Image.asset(AssetResources.podcasticon))
-        ],
-      ),
-      backgroundColor: ColorResources.white,
-      body: SingleChildScrollView(
-          child:Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    CardItems(img: AssetResources.robotimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.microsoftimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.robotimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.microsoftimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.robotimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.microsoftimage),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CardItems(img: AssetResources.robotimage),
-                  ],
+        backgroundColor: ColorResources.white,
+        body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      CardItems(img: AssetResources.robotimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.microsoftimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.robotimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.microsoftimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.robotimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.microsoftimage),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CardItems(img: AssetResources.robotimage),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Column(
-                children: [
-                  StickyHeader(
-                    header: Container(
-                        width: width,
-                        height: height*0.05,
-                        
-                        color: ColorResources.white,
-                        child: const Text(
-                          "Latest News",
-                          style: TextStyle(
-                              color: ColorResources.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 18),
-                        ),
-                      ),
-                      content: FutureBuilder<NewsChannelHeadLinesModel>(
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: StickyHeader(
+                  header: Container(
+                    width: width,
+                    height: height * 0.05,
+                    color: ColorResources.white,
+                    child: const Text(
+                      "Latest News",
+                      style: TextStyle(
+                          color: ColorResources.black,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18),
+                    ),
+                  ),
+                  content: FutureBuilder<NewsChannelHeadLinesModel>(
                       future: newsViewModel.fetchNewsChannelHeadlinesApi(),
                       builder: (BuildContext context, snapshot) {
                         if (snapshot.connectionState ==
@@ -113,12 +111,11 @@ class _HomePageState extends State<HomePage> {
                             ),
                           );
                         }
-                        return Container(
+                        return SizedBox(
                             height: height,
                             width: width,
-                           
-                          
                             child: ListView.builder(
+                             
                                 itemCount: snapshot.data!.articles!.length,
                                 itemBuilder: ((context, index) {
                                   return Padding(
@@ -158,35 +155,48 @@ class _HomePageState extends State<HomePage> {
                                                     )));
                                       },
                                       child: SizedBox(
-                                        height: 100,
-                                        width: 100,
+                                        height: height * 0.1,
+                                        width: width,
                                         child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                child: Container(
-                                                  height: 100,
-                                                  width: 100,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius: BorderRadiusDirectional.circular(20),
-                                                    image: DecorationImage(image: CachedNetworkImageProvider(snapshot
+                                              CachedNetworkImage(
+                                                  imageUrl: snapshot
                                                       .data!
                                                       .articles![index]
                                                       .urlToImage
                                                       .toString(),
-                                                      
+                                                  imageBuilder: (context,
+                                                          imageProvider) =>
+                                                      Container(
+                                                        height: height * 0.1,
+                                                        width: width * 0.3,
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadiusDirectional
+                                                                    .circular(
+                                                                        15),
+                                                            image: DecorationImage(
+                                                                image:
+                                                                    imageProvider,
+                                                                fit: BoxFit
+                                                                    .cover)),
                                                       ),
-                                                      fit: BoxFit.cover,
+                                                  placeholder: (context, url) =>
+                                                      const SpinKitCircle(
+                                                        size: 50,
+                                                        color: ColorResources
+                                                            .amber,
                                                       ),
-                                                  ),
-                                                
-                                                  
-                                                 
-                                                ),
-                                              ),
+                                                  errorWidget: (context, url,
+                                                          error) =>
+                                                      SizedBox(
+                                                          height: height * 0.1,
+                                                          width: width * 0.3,
+                                                          child: Image.asset(
+                                                              AssetResources
+                                                                  .noimage))),
                                               Container(
                                                 alignment: Alignment.center,
                                                 height: height * 0.55,
@@ -209,22 +219,11 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   );
                                 })));
-                      }) ,
-
-                  ),
-                   
-                    
-                ],
-                  ),
-            )
-                  
-                ],
-              ),
-      )
-            );
-          
-        
-      
-    
+                      }),
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }
