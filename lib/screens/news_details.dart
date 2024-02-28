@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,27 +44,37 @@ class _NewsDetailsState extends State<NewsDetails> {
                   height: height * 0.5,
                   width: width,
                   child: CachedNetworkImage(
-                    imageUrl: widget.newsimage,
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) => const SpinKitCircle(
-                      color: ColorResources.amber,
-                      size: 50,
-                    ),
-                    errorWidget: (context, url, error) => Image.asset(
-                      AssetResources.noimage,
+                      imageUrl: widget.newsimage,
                       fit: BoxFit.cover,
-                    ),
-                  ),
+                      placeholder: (context, url) => const SpinKitCircle(
+                            color: ColorResources.amber,
+                            size: 50,
+                          ),
+                      errorWidget: (context, url, error) {
+                        if (kDebugMode) {
+                          print("Error loading image:$error");
+                        }
+
+                        return Image.asset(
+                          AssetResources.noimage,
+                          fit: BoxFit.cover,
+                        );
+                      }),
                 ),
               ),
               Positioned(
-                top: 40,
-                left: 25,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context, MaterialPageRoute(builder: (context)=>HomePage()));
-                  },
-                  child: Image.asset(AssetResources.backicon,)))
+                  top: 40,
+                  left: 25,
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      },
+                      child: Image.asset(
+                        AssetResources.backicon,
+                      )))
             ],
           ),
           content: Column(
