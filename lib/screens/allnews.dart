@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,40 +84,28 @@ class _AllNewsState extends State<AllNews> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    CachedNetworkImage(
-                                      imageUrl: snapshot
-                                          .data!.articles![index].urlToImage
-                                          .toString(),
-                                      imageBuilder: (context, imageProvider) {
-                                        return Container(
-                                          height: height * 0.1,
-                                          width: width * 0.3,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadiusDirectional
-                                                      .circular(15),
-                                              image: DecorationImage(
-                                                  image: imageProvider,
-                                                  fit: BoxFit.cover)),
-                                        );
-                                      },
-                                      placeholder: (context, url) =>
-                                          const SpinKitCircle(
-                                        size: 50,
-                                        color: ColorResources.amber,
-                                      ),
-                                      errorWidget: (context, url, error) {
-                                        if (kDebugMode) {
-                                          print("Error loading image:$error");
-                                        }
-                                        return SizedBox(
-                                          height: height * 0.1,
-                                          width: width * 0.3,
-                                          child: Image.asset(
-                                              AssetResources.noimage),
-                                        );
-                                      },
-                                    ),
+                                   ClipRRect(
+                                    borderRadius: BorderRadiusDirectional.circular(15),
+                                     child: CachedNetworkImage(
+                                      height: height*0.3,
+                                      width: width*0.3,
+                                          imageUrl: snapshot
+                                              .data!.articles![index].urlToImage
+                                              .toString(),
+                                          fit: BoxFit.cover,
+                                       
+                                          placeholder: (context, url) =>
+                                              SpinKitCircle(
+                                            size: 50,
+                                            color: ColorResources.amber,
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              Image.asset(
+                                            AssetResources.noimage,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                   ),
                                     Container(
                                       alignment: Alignment.center,
                                       height: height * 0.55,

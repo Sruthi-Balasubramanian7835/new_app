@@ -50,16 +50,7 @@ class _NewsDetailsState extends State<NewsDetails> {
                             color: ColorResources.amber,
                             size: 50,
                           ),
-                      errorWidget: (context, url, error) {
-                        if (kDebugMode) {
-                          print("Error loading image:$error");
-                        }
-
-                        return Image.asset(
-                          AssetResources.noimage,
-                          fit: BoxFit.cover,
-                        );
-                      }),
+                      errorWidget:(context, url, error) => Image.asset(AssetResources.noimage,fit: BoxFit.cover,),),
                 ),
               ),
               Positioned(
