@@ -20,5 +20,4 @@ class NewsRepository{
    throw Exception('Error');
   }
 
-  fetchLatestNewsChannelHeadlinesApi() {}
 }

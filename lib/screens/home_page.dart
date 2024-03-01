@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/presentation/widgets/drawer_widget.dart';
 import 'package:news_app/screens/allnews.dart';
 import 'package:news_app/screens/latestnews.dart';
 
@@ -15,8 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
-
+    final height = MediaQuery.sizeOf(context).height*1;
+       final width = MediaQuery.sizeOf(context).width*1;
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -24,30 +26,28 @@ class _HomePageState extends State<HomePage> {
             "NewsApp",
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
-          actions: [
-            IconButton(
-                onPressed: () {}, icon: Image.asset(AssetResources.menuicon))
-          ],
+          
         ),
+        drawer:Drawer(
+          width: width*0.5,
+          backgroundColor: Colors.white,
+          child:Categories(child: ListView(),)
+        ) ,
         backgroundColor: ColorResources.white,
-        body: SingleChildScrollView(
+        body: Padding(
+          padding: const EdgeInsets.only(left: 20,right: 20),
+          child: ListView(
+           children: [
+            SizedBox(height: height*0.02,),
          
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: height * 0.02,
-                ),
-                const LatestNews(),
-                SizedBox(
-                  height: height * 0.02,
-                ),
-                const AllNews(),
-              ],
-            ),
+             LatestNews(),
+             SizedBox(height: height*0.04,),
+          
+      
+             AllNews(),
+           ],
           ),
-        ));
+        )
+         );
   }
 }

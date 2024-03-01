@@ -10,7 +10,7 @@ import 'package:news_app/src/utils/resources/color_resources.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
 class NewsDetails extends StatefulWidget {
-  final String newsimage, newsauthor, newsdescription, newstime, newscontent;
+  final String newsimage, newsauthor, newsdescription, newstime, newscontent,newssource;
   const NewsDetails({
     super.key,
     required this.newsauthor,
@@ -18,6 +18,7 @@ class NewsDetails extends StatefulWidget {
     required this.newsdescription,
     required this.newsimage,
     required this.newstime,
+    required this.newssource,
   });
 
   @override
@@ -111,11 +112,17 @@ class _NewsDetailsState extends State<NewsDetails> {
                         height: height * 0.05,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             format.format(dateTime),
                             style: GoogleFonts.aBeeZee(
                                 fontSize: 15, fontWeight: FontWeight.w900),
+                          ),
+                          Text(
+                            widget.newssource,
+                            style: GoogleFonts.aBeeZee(
+                                fontSize: 15, fontWeight: FontWeight.w900,color: ColorResources.blue),
                           ),
                         ],
                       )
