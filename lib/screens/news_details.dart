@@ -55,8 +55,8 @@ class _NewsDetailsState extends State<NewsDetails> {
                 ),
               ),
               Positioned(
-                  top: 40,
-                  left: 25,
+                  top: 35,
+                  left: 8,
                   child: GestureDetector(
                       onTap: () {
                         Navigator.pop(
@@ -64,8 +64,14 @@ class _NewsDetailsState extends State<NewsDetails> {
                             MaterialPageRoute(
                                 builder: (context) => const HomePage()));
                       },
-                      child: Image.asset(
-                        AssetResources.backicon,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusDirectional.circular(40),
+                          color: ColorResources.black,
+                        ),
+                        height: 40,
+                        width: 40,
+                        child: Icon(Icons.navigate_before,color: ColorResources.white,size: 30,),
                       )))
             ],
           ),

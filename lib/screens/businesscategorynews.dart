@@ -2,58 +2,46 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/model/newschannel_headlinesmodel.dart';
 import 'package:news_app/screens/news_details.dart';
 import 'package:news_app/src/utils/resources/asset_resources.dart';
 import 'package:news_app/src/utils/resources/color_resources.dart';
-import 'package:news_app/view_model/news_view_model.dart';
-import 'package:sticky_headers/sticky_headers/widget.dart';
+import 'package:news_app/view_model/businesscategory_view_model.dart';
 
-class AllNews extends StatefulWidget {
-  const AllNews({super.key});
+class BusinessCategoryNews extends StatefulWidget {
+  const BusinessCategoryNews({super.key});
 
   @override
-  State<AllNews> createState() => _AllNewsState();
+  State<BusinessCategoryNews> createState() => _BusinessCategoryNewsState();
 }
 
-class _AllNewsState extends State<AllNews> {
-  NewsViewModel newsViewModel = NewsViewModel();
+class _BusinessCategoryNewsState extends State<BusinessCategoryNews> {
+  BusinessCategoryViewModel businessCategoryViewModel=BusinessCategoryViewModel();
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
+      final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-    return Container(
-      height: height,
-      width: width,
-      child: StickyHeader(
-        header: Container(
-            height: height * 0.03,
-            width: width,
-            color: ColorResources.white,
-            child: Text(
-              "All News",
-              style: GoogleFonts.aBeeZee(
-                  fontSize: 18, fontWeight: FontWeight.bold),
-            )),
-        content: FutureBuilder<NewsChannelHeadLinesModel>(
-            future: newsViewModel.fetchNewsChannelHeadlinesApi(),
-            builder: (BuildContext context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: SpinKitCircle(
-                    color: ColorResources.blue,
-                    size: 50,
-                  ),
-                );
-              }
-              return Container(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Business News",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
+      ),
+      body: SingleChildScrollView(
+        child: FutureBuilder(future:businessCategoryViewModel.fetchBusinessCategoryapi(), builder: (BuildContext context, snapshot) {
+          if(snapshot.connectionState==ConnectionState.waiting){
+            return SpinKitCircle(
+             size: 50,
+             color: ColorResources.blue,
+            );
+          }
+          return  Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Container(
                 height: height,
                 width: width,
                 child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: snapshot.data!.articles!.length,
-                
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -131,8 +119,9 @@ class _AllNewsState extends State<AllNews> {
                         ),
                       );
                     })),
-              );
-            }),
+              ),
+            );
+        }),
       ),
     );
   }

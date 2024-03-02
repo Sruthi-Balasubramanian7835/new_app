@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 
 class LatestNewsRepository{
     Future<LatestNewsModel>fetchLatestNewsChannelApi()async{
-     String url='https://newsapi.org/v2/top-headlines?country=us&apiKey=d499f4d68dda4a35b31cf8fbd3b084fb';
+     String url='https://newsapi.org/v2/top-headlines?country=us&apiKey=ef6a7d9124f547da831f29bf5998d576';
      final response=await http.get(Uri.parse(url));
       if (kDebugMode) {
       print(response.body);

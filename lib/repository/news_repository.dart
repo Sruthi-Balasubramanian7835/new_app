@@ -6,7 +6,7 @@ import 'package:news_app/model/newschannel_headlinesmodel.dart';
 
 class NewsRepository{
   Future<NewsChannelHeadLinesModel> fetchNewsChannelHeadlinesApi()async {
-    String url='https://newsapi.org/v2/everything?q=india&apiKey=d499f4d68dda4a35b31cf8fbd3b084fb';
+    String url='https://newsapi.org/v2/everything?q=india&apiKey=ef6a7d9124f547da831f29bf5998d576';
 
 
     final response=await http.get(Uri.parse(url));

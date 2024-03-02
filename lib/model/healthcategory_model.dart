@@ -1,11 +1,11 @@
-class CategoriesModel {
+class HealthCategoryModel {
   String? status;
   int? totalResults;
   List<Articles>? articles;
 
-  CategoriesModel({this.status, this.totalResults, this.articles});
+  HealthCategoryModel({this.status, this.totalResults, this.articles});
 
-  CategoriesModel.fromJson(Map<String, dynamic> json) {
+  HealthCategoryModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
@@ -31,11 +31,11 @@ class Articles {
   Source? source;
   String? author;
   String? title;
-  Null? description;
+  String? description;
   String? url;
-  Null? urlToImage;
+  String? urlToImage;
   String? publishedAt;
-  Null? content;
+  String? content;
 
   Articles(
       {this.source,
