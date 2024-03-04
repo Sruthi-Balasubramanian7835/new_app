@@ -10,7 +10,12 @@ import 'package:news_app/src/utils/resources/color_resources.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
 class NewsDetails extends StatefulWidget {
-  final String newsimage, newsauthor, newsdescription, newstime, newscontent,newssource;
+  final String newsimage,
+      newsauthor,
+      newsdescription,
+      newstime,
+      newscontent,
+      newssource;
   const NewsDetails({
     super.key,
     required this.newsauthor,
@@ -45,18 +50,22 @@ class _NewsDetailsState extends State<NewsDetails> {
                   height: height * 0.5,
                   width: width,
                   child: CachedNetworkImage(
-                      imageUrl: widget.newsimage,
+                    imageUrl: widget.newsimage,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => const SpinKitCircle(
+                      color: ColorResources.amber,
+                      size: 50,
+                    ),
+                    errorWidget: (context, url, error) => Image.asset(
+                      AssetResources.noimage,
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => const SpinKitCircle(
-                            color: ColorResources.amber,
-                            size: 50,
-                          ),
-                      errorWidget:(context, url, error) => Image.asset(AssetResources.noimage,fit: BoxFit.cover,),),
+                    ),
+                  ),
                 ),
               ),
               Positioned(
-                  top: 35,
-                  left: 8,
+                  top: 43,
+                  left: 18,
                   child: GestureDetector(
                       onTap: () {
                         Navigator.pop(
@@ -65,14 +74,21 @@ class _NewsDetailsState extends State<NewsDetails> {
                                 builder: (context) => const HomePage()));
                       },
                       child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(40),
-                          color: ColorResources.black,
-                        ),
-                        height: 40,
-                        width: 40,
-                        child: Icon(Icons.navigate_before,color: ColorResources.white,size: 30,),
-                      )))
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(40),
+                              color: ColorResources.white,
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: ColorResources.white,
+                                    blurRadius: 2,
+                                    spreadRadius: 5)
+                              ]),
+                          height: 23,
+                          width: 23,
+                          child: Image.asset(
+                            AssetResources.navigationbeforeimage,
+                          ))))
             ],
           ),
           content: Column(
@@ -128,7 +144,9 @@ class _NewsDetailsState extends State<NewsDetails> {
                           Text(
                             widget.newssource,
                             style: GoogleFonts.aBeeZee(
-                                fontSize: 15, fontWeight: FontWeight.w900,color: ColorResources.blue),
+                                fontSize: 15,
+                                fontWeight: FontWeight.w900,
+                                color: ColorResources.blue),
                           ),
                         ],
                       )

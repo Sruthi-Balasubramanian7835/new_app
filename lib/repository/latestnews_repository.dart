@@ -1,12 +1,11 @@
 import 'package:news_app/model/latestnews_model.dart';
 import 'package:http/http.dart'as http;
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 
 class LatestNewsRepository{
     Future<LatestNewsModel>fetchLatestNewsChannelApi()async{
-     String url='https://newsapi.org/v2/top-headlines?country=us&apiKey=ef6a7d9124f547da831f29bf5998d576';
+     String url='https://newsapi.org/v2/top-headlines?country=us&apiKey=7ecfeeafe7474ae385d010a8c30b0b0a';
      final response=await http.get(Uri.parse(url));
       if (kDebugMode) {
       print(response.body);

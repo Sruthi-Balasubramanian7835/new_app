@@ -22,7 +22,7 @@ class _AllNewsState extends State<AllNews> {
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-    return Container(
+    return SizedBox(
       height: height,
       width: width,
       child: StickyHeader(
@@ -46,14 +46,13 @@ class _AllNewsState extends State<AllNews> {
                   ),
                 );
               }
-              return Container(
-                height: height,
+              return SizedBox(
+                height:height,
                 width: width,
                 child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
+                  
                     shrinkWrap: true,
                     itemCount: snapshot.data!.articles!.length,
-                
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -101,7 +100,7 @@ class _AllNewsState extends State<AllNews> {
                                           .toString(),
                                       fit: BoxFit.cover,
                                       placeholder: (context, url) =>
-                                          SpinKitCircle(
+                                          const SpinKitCircle(
                                         size: 50,
                                         color: ColorResources.amber,
                                       ),

@@ -22,7 +22,7 @@ class _LatestNewsState extends State<LatestNews> {
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
     final width = MediaQuery.sizeOf(context).width * 1;
-    return Container(
+    return SizedBox(
         height: height * 0.3,
         width: width,
         child: StickyHeader(
@@ -39,7 +39,7 @@ class _LatestNewsState extends State<LatestNews> {
               future: latestnewsviewModel.fetchLatestNewsChannelApi(),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: SpinKitCircle(
                       size: 50,
                       color: ColorResources.blue,
@@ -47,7 +47,6 @@ class _LatestNewsState extends State<LatestNews> {
                   );
                 } else {
                   return ListView.builder(
-                      physics: BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data!.articles!.length,
                       itemBuilder: (context, index) {
@@ -58,7 +57,7 @@ class _LatestNewsState extends State<LatestNews> {
                               Container(
                                 height: height * 0.5,
                                 width: width * 0.75,
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: ClipRRect(
                                   borderRadius:
                                       BorderRadiusDirectional.circular(15),
@@ -96,9 +95,12 @@ class _LatestNewsState extends State<LatestNews> {
                                                           .articles![index]
                                                           .publishedAt
                                                           .toString(),
-                                                           newssource: snapshot.data!
-                                                      .articles![index].source!.name
-                                                      .toString(),
+                                                      newssource: snapshot
+                                                          .data!
+                                                          .articles![index]
+                                                          .source!
+                                                          .name
+                                                          .toString(),
                                                     )));
                                       },
                                       child: CachedNetworkImage(
@@ -107,11 +109,9 @@ class _LatestNewsState extends State<LatestNews> {
                                             .toString(),
                                         fit: BoxFit.cover,
                                         placeholder: (context, url) =>
-                                            Container(
-                                          child: SpinKitCircle(
-                                            size: 50,
-                                            color: ColorResources.amber,
-                                          ),
+                                            const SpinKitCircle(
+                                          size: 50,
+                                          color: ColorResources.amber,
                                         ),
                                         errorWidget: (context, url, error) =>
                                             Image.asset(
@@ -126,7 +126,7 @@ class _LatestNewsState extends State<LatestNews> {
                               Positioned(
                                   bottom: 10,
                                   top: 150,
-                                  child: Container(
+                                  child: SizedBox(
                                       height: height * 0.1,
                                       width: width * 0.6,
                                       child: Text(

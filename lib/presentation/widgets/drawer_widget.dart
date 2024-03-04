@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/screens/businesscategorynews.dart';
-import 'package:news_app/screens/educationcategorynews.dart';
-import 'package:news_app/screens/entertainmentcategory.dart';
-import 'package:news_app/screens/generalcategorynews.dart';
-import 'package:news_app/screens/healthcategory.dart';
-import 'package:news_app/screens/politicscategorynews.dart';
-import 'package:news_app/screens/sportscategorynews.dart';
-import 'package:news_app/screens/technologycategorynews.dart';
+
+import 'package:news_app/screens/category_news.dart';
 
 class Categories extends StatefulWidget {
   const Categories({super.key, required ListView child});
@@ -35,7 +29,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>GeneralCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'General News',
+                          categoryname: 'general',
+                        )));
           },
         ),
         ListTile(
@@ -45,7 +45,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>HealthCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Health News',
+                          categoryname: 'health',
+                        )));
           },
         ),
         ListTile(
@@ -55,7 +61,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>EntertainmentCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Entertainment News',
+                          categoryname: 'entertainment',
+                        )));
           },
         ),
         ListTile(
@@ -65,7 +77,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>SportsCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Sports News',
+                          categoryname: 'sports',
+                        )));
           },
         ),
         ListTile(
@@ -75,7 +93,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>BusinessCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Business News',
+                          categoryname: 'business',
+                        )));
           },
         ),
         ListTile(
@@ -85,7 +109,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>TechnologyCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Technology News',
+                          categoryname: 'technology',
+                        )));
           },
         ),
         ListTile(
@@ -95,7 +125,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>EducationCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Education News',
+                          categoryname: 'education',
+                        )));
           },
         ),
         ListTile(
@@ -105,7 +141,13 @@ class _CategoriesState extends State<Categories> {
                 GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.bold),
           ),
           onTap: () {
-             Navigator.push(context, MaterialPageRoute(builder: (context)=>PoliticsCategoryNews()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryNews(
+                          txt: 'Political News',
+                          categoryname: 'politics',
+                        )));
           },
         ),
       ],

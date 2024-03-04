@@ -1,12 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart'as http;
 import 'package:news_app/model/newschannel_headlinesmodel.dart';
 
 class NewsRepository{
   Future<NewsChannelHeadLinesModel> fetchNewsChannelHeadlinesApi()async {
-    String url='https://newsapi.org/v2/everything?q=india&apiKey=ef6a7d9124f547da831f29bf5998d576';
+    String url='https://newsapi.org/v2/everything?q=india&apiKey=7ecfeeafe7474ae385d010a8c30b0b0a';
 
 
     final response=await http.get(Uri.parse(url));
