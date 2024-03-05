@@ -20,8 +20,8 @@ class _LatestNewsState extends State<LatestNews> {
   LatestNewsViewModel latestnewsviewModel = LatestNewsViewModel();
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height * 1;
-    final width = MediaQuery.sizeOf(context).width * 1;
+    final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
     return SizedBox(
         height: height * 0.3,
         width: width,

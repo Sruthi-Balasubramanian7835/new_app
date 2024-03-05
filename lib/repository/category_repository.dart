@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class CategoryRepository {
   Future<CategoryModel> fetchCategoryapi(String category) async {
     String url =
-        "https://newsapi.org/v2/everything?q=${category}&apiKey=7ecfeeafe7474ae385d010a8c30b0b0a";
+        "https://newsapi.org/v2/everything?q=$category&apiKey=7ecfeeafe7474ae385d010a8c30b0b0a";
     final response = await http.get(Uri.parse(url));
     if (kDebugMode) {
       print(response.body);

@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -63,32 +62,25 @@ class _NewsDetailsState extends State<NewsDetails> {
                   ),
                 ),
               ),
-              Positioned(
-                  top: 43,
-                  left: 18,
-                  child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePage()));
-                      },
-                      child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(40),
-                              color: ColorResources.white,
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: ColorResources.white,
-                                    blurRadius: 2,
-                                    spreadRadius: 5)
-                              ]),
-                          height: 23,
-                          width: 23,
-                          child: Image.asset(
-                            AssetResources.navigationbeforeimage,
-                          ))))
+              Padding(
+                padding: const EdgeInsets.only(left:12,top: 45),
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadiusDirectional.circular(10),
+                            color: ColorResources.white,
+                           ),
+                        height: 35,
+                        width: 35,
+                        child: const Icon(Icons.arrow_back))),
+              )
             ],
           ),
           content: Column(

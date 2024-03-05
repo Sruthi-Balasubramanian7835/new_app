@@ -34,12 +34,12 @@ class _HomePageState extends State<HomePage> {
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
           child: ListView(
-            
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               SizedBox(
                 height: height * 0.02,
               ),
-              const LatestNews(),
+             const  LatestNews(),
               SizedBox(
                 height: height * 0.04,
               ),

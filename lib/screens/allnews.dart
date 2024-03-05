@@ -23,7 +23,7 @@ class _AllNewsState extends State<AllNews> {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
     return SizedBox(
-      height: height,
+      height: height*0.47,
       width: width,
       child: StickyHeader(
         header: Container(
@@ -47,11 +47,9 @@ class _AllNewsState extends State<AllNews> {
                 );
               }
               return SizedBox(
-                height:height,
+                height:height*0.47,
                 width: width,
                 child: ListView.builder(
-                  
-                    shrinkWrap: true,
                     itemCount: snapshot.data!.articles!.length,
                     itemBuilder: ((context, index) {
                       return Padding(
